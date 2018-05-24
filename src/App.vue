@@ -2,7 +2,7 @@
   <el-container>
     <el-header id="header">Header</el-header>
     <el-main>
-      <el-container id="main-inner">
+      <el-container id="main-outer">
         <el-aside width="200px">
           <template v-for="item in navigation">
             <router-link v-bind:key="item.path" :to="item.path">{{ item.name }}</router-link>
@@ -43,7 +43,7 @@ html, body {
 #main {
   min-height: calc(100vh - 160px);
 }
-#main-inner {
+#main-outer {
   margin: auto;
   width: 1200px;
   height: 100%;
