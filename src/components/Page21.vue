@@ -1,10 +1,10 @@
 <template>
-  <div><router-view/></div>
+  <div>Page21</div>
 </template>
 
 <script>
 export default {
-  name: 'Page2',
+  name: 'Page21',
   data () {
     return {
     }

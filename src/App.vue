@@ -1,32 +1,35 @@
 <template>
-  <el-container>
-    <el-header id="header">Header</el-header>
-    <el-main>
-      <el-container id="main-outer">
-        <el-aside width="200px">
-          <template v-for="item in navigation">
-            <router-link v-bind:key="item.path" :to="item.path">{{ item.name }}</router-link>
-          </template>
-        </el-aside>
-        <el-main id="main">
-          <router-view/>
+  <el-container id="main-outer">
+    <el-aside width="200px" style="overflow-x: hidden;">
+      <Nav :nav="navigation" />
+    </el-aside>
+    <el-main id="main">
+      <el-container id="main-inner">
+        <el-header id="header">Header</el-header>
+        <el-main>
+          <el-container>
+            <el-main id="main">
+              <router-view/>
+            </el-main>
+          </el-container>
         </el-main>
       </el-container>
     </el-main>
-    <el-footer id="footer">Footer</el-footer>
   </el-container>
 </template>
 
 <script>
+import Nav from '@/components/Nav'
+import routes from '@/router/routes'
 export default {
   name: 'App',
   data () {
     return {
-      navigation: [
-        { path: '/page1', name: 'Page1' },
-        { path: '/page2', name: 'Page2' }
-      ]
+      navigation: routes
     }
+  },
+  components: {
+    Nav
   }
 }
 </script>
@@ -37,15 +40,10 @@ html, body {
   border: 0;
   padding: 0;
 }
-#header, #footer {
-  padding: 0 calc(50vw - 600px);
+#main-outer {
+  height: 100vh;
 }
 #main {
-  min-height: calc(100vh - 160px);
-}
-#main-outer {
-  margin: auto;
-  width: 1200px;
-  height: 100%;
+  padding: 0;
 }
 </style>
