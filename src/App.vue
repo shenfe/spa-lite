@@ -1,6 +1,6 @@
 <template>
   <el-container id="main-outer">
-    <el-aside width="200px" style="overflow-x: hidden;">
+    <el-aside style="width: auto; overflow-x: hidden;">
       <Nav :nav="navigation" />
     </el-aside>
     <el-main id="main">
