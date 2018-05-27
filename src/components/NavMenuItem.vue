@@ -1,7 +1,7 @@
 <template>
   <el-submenu v-if="data.children" :index="fullPath">
     <template slot="title">
-      <i :class="`el-icon-${data.extraType || 'setting'}`"></i>
+      <i v-if="data.extraType" :class="`el-icon-${data.extraType}`"></i>
       <span slot="title">{{ data.extraTitle }}</span>
     </template>
     <template v-for="item in data.children">
@@ -9,7 +9,7 @@
     </template>
   </el-submenu>
   <el-menu-item v-else :index="fullPath">
-    <i :class="`el-icon-${data.extraType || 'setting'}`"></i>
+    <i v-if="data.extraType" :class="`el-icon-${data.extraType}`"></i>
     <span slot="title">{{ data.extraTitle }}</span>
   </el-menu-item>
 </template>

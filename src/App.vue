@@ -1,11 +1,13 @@
 <template>
   <el-container id="main-outer">
     <el-aside style="width: auto; overflow-x: hidden;">
-      <Nav :nav="navigation" />
+      <Nav :isCollapse="menuStatus" :nav="navigation" />
     </el-aside>
     <el-main id="main">
       <el-container id="main-inner">
-        <el-header id="header">Header</el-header>
+        <el-header id="header">
+          <Header :menuStatus="menuStatus" @anyEvent="onHeaderEvent" />
+        </el-header>
         <el-main>
           <el-container>
             <el-main id="main">
@@ -19,22 +21,34 @@
 </template>
 
 <script>
+import Header from '@/components/Header'
 import Nav from '@/components/Nav'
 import routes from '@/router/routes'
 export default {
   name: 'App',
   data () {
     return {
-      navigation: routes
+      navigation: routes,
+      menuStatus: false
     }
   },
   components: {
+    Header,
     Nav
+  },
+  methods: {
+    onHeaderEvent ({ event, data }) {
+      console.log(arguments)
+      switch (event) {
+        case 'menu':
+          this.menuStatus = !!data
+      }
+    }
   }
 }
 </script>
 
-<style>
+<style lang="scss">
 html, body {
   margin: 0;
   border: 0;

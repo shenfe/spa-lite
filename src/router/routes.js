@@ -8,13 +8,15 @@ export default [
     path: '/page1',
     name: 'Page1',
     component: Page1,
-    extraTitle: '页面1'
+    extraTitle: '页面1',
+    extraType: 'setting'
   },
   {
     path: '/page2',
     name: 'Page2',
     component: Page2,
     extraTitle: '页面2',
+    extraType: 'setting',
     children: [
       {
         path: 'page21',

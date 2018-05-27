@@ -9,25 +9,15 @@
   </el-menu>
 </template>
 
-<style scoped>
-  #nav {
-    height: 100vh;
-  }
-  #nav:not(.el-menu--collapse) {
-    width: 200px;
-    min-height: 400px;
-  }
-</style>
-
 <script>
 import NavMenuItem from './NavMenuItem'
 export default {
   props: {
+    isCollapse: Boolean,
     nav: Array
   },
   data () {
     return {
-      isCollapse: false
     }
   },
   components: {
@@ -43,3 +33,15 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+#nav {
+  height: 100vh;
+}
+#nav:not(.el-menu--collapse) {
+  width: 200px;
+}
+#logo img {
+  height: 50%;
+}
+</style>

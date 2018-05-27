@@ -1,0 +1,6 @@
+._flex {
+  display: flex;
+  & > * {
+    flex: 1;
+  }
+}
