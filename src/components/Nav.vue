@@ -1,5 +1,5 @@
 <template>
-  <el-menu router id="nav" @open="handleOpen" @close="handleClose" :collapse="isCollapse"
+  <el-menu router id="nav" @open="handleOpen" @close="handleClose" :collapse="isCollapse" :default-openeds="subMenuList"
     background-color="#545c64"
     text-color="#fff"
     active-text-color="#ffd04b">
@@ -18,6 +18,7 @@ export default {
   },
   data () {
     return {
+      subMenuList: ['/page2']
     }
   },
   components: {

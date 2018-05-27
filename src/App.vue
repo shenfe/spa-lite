@@ -3,14 +3,14 @@
     <el-aside style="width: auto; overflow-x: hidden;">
       <Nav :isCollapse="menuStatus" :nav="navigation" />
     </el-aside>
-    <el-main id="main">
+    <el-main class="main">
       <el-container id="main-inner">
         <el-header id="header">
           <Header :menuStatus="menuStatus" @anyEvent="onHeaderEvent" />
         </el-header>
         <el-main>
           <el-container>
-            <el-main id="main">
+            <el-main class="main">
               <router-view/>
             </el-main>
           </el-container>
@@ -57,7 +57,10 @@ html, body {
 #main-outer {
   height: 100vh;
 }
-#main {
+.main {
   padding: 0;
+}
+#header {
+  border-bottom: 1px solid #e6e6e6;
 }
 </style>
