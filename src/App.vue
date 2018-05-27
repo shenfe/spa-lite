@@ -8,7 +8,7 @@
         <el-header id="header">
           <Header :menuStatus="menuStatus" @anyEvent="onHeaderEvent" />
         </el-header>
-        <el-main>
+        <el-main id="main">
           <el-container>
             <el-main class="main">
               <router-view/>
@@ -61,6 +61,12 @@ html, body {
   padding: 0;
 }
 #header {
+  position: sticky;
+  top: 0;
   border-bottom: 1px solid #e6e6e6;
+  background: rgba($color: #fff, $alpha: .6);
+}
+#main {
+  // height: calc(100vh - 60px);
 }
 </style>

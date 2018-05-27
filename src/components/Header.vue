@@ -52,6 +52,9 @@ export default {
   .el-button {
     margin: 0;
     border: none;
+    &:not(:hover) {
+      background: none;
+    }
   }
 }
 .image {
