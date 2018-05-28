@@ -4,8 +4,25 @@
 
 const path = require('path')
 
+const apiMock = require('../mock')
+
 module.exports = {
   dev: {
+
+    // Server App, Mock Data
+    before (app) {
+      for (let api in apiMock) {
+        if (!apiMock.hasOwnProperty(api)) continue
+        app.get(api, function (req, res) {
+          const data = apiMock[api]
+          if (typeof data === 'string') {
+            res.sendFile(path.resolve(__dirname, '../mock', data))
+          } else {
+            res.json(data)
+          }
+        })
+      }
+    },
 
     // Paths
     assetsSubDirectory: 'static',

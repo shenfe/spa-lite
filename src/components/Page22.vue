@@ -1,5 +1,7 @@
 <template>
-  <div>Page22</div>
+  <div>
+    <h1>Page22</h1>
+  </div>
 </template>
 
 <script>

@@ -10,9 +10,9 @@
     </span>
     <div id="user-block">
       <el-dropdown>
-        <span class="el-dropdown-link">
+        <span id="user-display" class="el-dropdown-link">
           <img id="user-figure" class="image" src="https://avatars3.githubusercontent.com/u/22103866">
-          <span>我</span>
+          <span>{{ username }}</span>
         </span>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item>信息</el-dropdown-item>
@@ -24,12 +24,14 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   props: {
     menuStatus: Boolean
   },
   data () {
     return {
+      username: ''
     }
   },
   methods: {
@@ -39,6 +41,11 @@ export default {
         data: !this.menuStatus
       })
     }
+  },
+  beforeMount () {
+    axios.get('/userinfo').then(res => {
+      this.username = res.data.data.name
+    })
   }
 }
 </script>
@@ -52,9 +59,7 @@ export default {
   .el-button {
     margin: 0;
     border: none;
-    &:not(:hover) {
-      background: none;
-    }
+    background: none;
   }
 }
 .image {
@@ -65,7 +70,7 @@ export default {
   float: right;
   cursor: pointer;
   .el-dropdown-link {
-    padding: 20px 0;
+    display: block;
   }
   #user-figure {
     border-radius: 50%;

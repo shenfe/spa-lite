@@ -1,5 +1,6 @@
 <template>
-  <el-menu router id="nav" @open="handleOpen" @close="handleClose" :collapse="isCollapse" :default-openeds="subMenuList"
+  <el-menu id="nav" router @open="handleOpen" @close="handleClose"
+    :collapse="isCollapse" :default-active="$route.path"
     background-color="#545c64"
     text-color="#fff"
     active-text-color="#ffd04b">
@@ -18,7 +19,6 @@ export default {
   },
   data () {
     return {
-      subMenuList: ['/page2']
     }
   },
   components: {
@@ -26,10 +26,8 @@ export default {
   },
   methods: {
     handleOpen (key, keyPath) {
-      console.log(key, keyPath)
     },
     handleClose (key, keyPath) {
-      console.log(key, keyPath)
     }
   }
 }
