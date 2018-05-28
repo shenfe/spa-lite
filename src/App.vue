@@ -65,9 +65,6 @@ html, body {
   top: 0;
   padding-left: 0;
   border-bottom: 1px solid #e6e6e6;
-  background: rgba($color: #fff, $alpha: .6);
-}
-#main {
-  // height: calc(100vh - 60px);
+  background: rgba($color: #fff, $alpha: .8);
 }
 </style>
