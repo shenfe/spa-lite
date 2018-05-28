@@ -9,13 +9,13 @@
       <span>App</span>
     </span>
     <div id="user-block">
-      <el-dropdown>
+      <el-dropdown @command="handleCommand">
         <span id="user-display" class="el-dropdown-link">
           <img id="user-figure" class="image" src="https://avatars3.githubusercontent.com/u/22103866">
           <span>{{ username }}</span>
         </span>
         <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item>信息</el-dropdown-item>
+          <el-dropdown-item command="displayInfo">信息</el-dropdown-item>
           <el-dropdown-item divided>退出</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
@@ -40,11 +40,35 @@ export default {
         event: 'menu',
         data: !this.menuStatus
       })
+    },
+    handleCommand (command) {
+      switch (command) {
+        case 'displayInfo':
+          this.$alert(this.username, '欢迎', {
+            confirmButtonText: '确定',
+            callback: action => {
+              if (action === 'confirm') {
+                this.$message({
+                  type: 'info',
+                  message: '您点了确定'
+                })
+              }
+            }
+          })
+      }
     }
   },
   beforeMount () {
     axios.get('/userinfo').then(res => {
-      this.username = res.data.data.name
+      return this.username = res.data.data.name
+    }).then(name => {
+      setTimeout(_ => {
+        this.$notify({
+          title: '欢迎',
+          message: name,
+          position: 'bottom-right'
+        })
+      }, 500)
     })
   }
 }
