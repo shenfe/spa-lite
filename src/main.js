@@ -10,7 +10,15 @@ import router from './router'
 
 import './common.scss'
 
+import fontawesome from '@fortawesome/fontawesome'
+import fas from '@fortawesome/fontawesome-free-solid'
+import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
+
+fontawesome.library.add(fas)
+
 Vue.use(ElementUI)
+
+Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.config.productionTip = false
 
