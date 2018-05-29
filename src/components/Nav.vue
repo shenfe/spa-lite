@@ -1,9 +1,6 @@
 <template>
   <el-menu id="nav" router @open="handleOpen" @close="handleClose"
-    :collapse="isCollapse" :default-active="$route.path"
-    background-color="#545c64"
-    text-color="#fff"
-    active-text-color="#ffd04b">
+    :collapse="isCollapse" :default-active="$route.path">
     <template v-for="item in nav">
       <NavMenuItem :key="item.path" :data="item" :path="''" />
     </template>
