@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Page21</h1>
-    <my-form :ctx="form" />
+    <my-form :ctx="form" @submit="onSubmit" />
   </div>
 </template>
 
@@ -11,6 +11,11 @@ export default {
   name: 'Page21',
   components: {
     MyForm
+  },
+  methods: {
+    onSubmit (data) {
+      console.log('submit', data)
+    }
   },
   data () {
     return {
@@ -119,9 +124,44 @@ export default {
             label: '多条输入',
             name: 'duotiao',
             type: 'list',
-            value: [],
+            value: ['123'],
             disabled: false,
-            placeholder: '下拉选择'
+            placeholder: '多条输入'
+          },
+          {
+            label: '开关',
+            name: 'kaiguan',
+            type: 'switch',
+            value: true,
+            disabled: false,
+            activeText: '激活',
+            inactiveText: '不激活'
+          },
+          {
+            label: '滑块',
+            name: 'huakuai',
+            type: 'range',
+            value: 10,
+            range: false,
+            disabled: false,
+            min: 0,
+            max: 100,
+            step: 5
+          },
+          {
+            label: '日期',
+            name: 'riqi',
+            type: 'date',
+            range: true
+          },
+          {
+            label: '上传',
+            name: 'shangchuan',
+            type: 'upload',
+            action: 'https://jsonplaceholder.typicode.com/posts/',
+            accept: '',
+            disabled: false,
+            hint: '只能上传csv文件'
           }
         ]
       }

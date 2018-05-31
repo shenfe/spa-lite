@@ -58,10 +58,12 @@
         <!-- 多条输入 -->
         <template v-if="item.type === 'list'">
           <el-select v-model="form[item.name]"
+            class="multi-input"
             :placeholder="item.placeholder || '请选择'"
             multiple
             filterable
             allow-create
+            :popper-append-to-body="false"
             default-first-option
             :disabled="!!item.disabled">
             <el-option v-for="(value, key) in item.options"
@@ -73,44 +75,47 @@
 
         <!-- 开关 -->
         <template v-if="item.type === 'switch'">
+          <el-switch v-model="form[item.name]"
+            :active-text="item.activeText"
+            :inactive-text="item.inactiveText"
+            :disabled="!!item.disabled">
+          </el-switch>
         </template>
 
         <!-- 滑块 -->
         <template v-if="item.type === 'range'">
+          <el-slider v-model="form[item.name]"
+            :min="item.min" :max="item.max" :step="item.step"
+            :range="!!item.range" :disabled="!!item.disabled">
+          </el-slider>
         </template>
 
         <!-- 日期时间 -->
-        <template v-if="item.type === 'time'">
+        <template v-if="item.type === 'date'">
+          <el-date-picker v-model="form[item.name]"
+            :datetimerange="!!item.range"
+            :type="item.range ? 'datetimerange' : 'datetime'"
+            value-format="timestamp"
+            placeholder="选择日期时间">
+          </el-date-picker>
         </template>
 
         <!-- 上传 -->
         <template v-if="item.type === 'upload'">
+          <el-upload :action="item.action"
+            :accept="item.accept"
+            :disabled="!!item.disabled">
+            <el-button size="small" type="primary">点击上传</el-button>
+            <div slot="tip" class="el-upload__tip">{{item.hint}}</div>
+          </el-upload>
         </template>
 
       </el-form-item>
     </template>
-    <el-form-item label="活动区域">
-      <el-select v-model="form.region" placeholder="请选择活动区域">
-        <el-option label="区域一" value="shanghai"></el-option>
-        <el-option label="区域二" value="beijing"></el-option>
-      </el-select>
-    </el-form-item>
-    <el-form-item label="活动时间">
-      <el-col :span="11">
-        <el-date-picker type="date" placeholder="选择日期" v-model="form.date1" style="width: 100%;"></el-date-picker>
-      </el-col>
-      <el-col class="line" :span="2">-</el-col>
-      <el-col :span="11">
-        <el-time-picker type="fixed-time" placeholder="选择时间" v-model="form.date2" style="width: 100%;"></el-time-picker>
-      </el-col>
-    </el-form-item>
-    <el-form-item label="即时配送">
-      <el-switch v-model="form.delivery"></el-switch>
-    </el-form-item>
 
     <el-form-item>
       <el-button type="primary" @click="onSubmit(form)">立即创建</el-button>
-      <el-button @click="resetForm()">重置</el-button>
+      <!-- <el-button @click="resetForm()">重置</el-button> -->
       <el-button>取消</el-button>
     </el-form-item>
   </el-form>
@@ -138,7 +143,7 @@ export default {
       form[item.name] = item.value
     }
     return {
-      formName: 'thisDamnForm',
+      formName: 'thisForm',
       rules,
       form
     }
@@ -147,7 +152,7 @@ export default {
     onSubmit (form) {
       this.$refs[this.formName].validate(valid => {
         if (valid) {
-          this.$emit('submit', form)
+          this.$emit('submit', JSON.parse(JSON.stringify(form)))
         } else {
           return false
         }
@@ -159,3 +164,11 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.multi-input {
+  .el-input__suffix, .el-select-dropdown {
+    display: none;
+  }
+}
+</style>
