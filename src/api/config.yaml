@@ -1,0 +1,4 @@
+base: /api/
+apis:
+  - api1
+  - api2

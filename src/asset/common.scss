@@ -1,0 +1,31 @@
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, .5);
+  border: solid #fff 2px;
+  border-radius: 6px;
+  box-shadow: 0 0 1px rgba(255, 255, 255, .5)
+}
+
+::-webkit-scrollbar-track-piece {
+  background: transparent
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+@import './markdown.scss';
+
+// customized fontawesome icon class 1
+.fa_1 {
+  vertical-align: middle;
+  margin-right: 5px;
+  width: 24px !important;
+  text-align: center;
+  font-size: 18px;
+}

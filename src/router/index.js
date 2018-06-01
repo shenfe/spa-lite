@@ -5,12 +5,19 @@ import routes from './routes'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
-    {
-      path: '/',
-      redirect: '/page1'
-    },
-    ...routes
+    ...routes.map(r => {
+      if (!r.icon) r.icon = 'bars'
+      return r
+    })
   ]
 })
+
+const defaultTitle = 'Vue-SPA'
+
+router.afterEach((transition) => {
+  document.title = transition.meta.title || defaultTitle
+})
+
+export default router

@@ -1,31 +1,39 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+import './asset/common.scss'
+
 import Vue from 'vue'
 
+// Import Element-UI
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
-import App from './App'
+// Import FontAwesome
+import fontawesome from '@fortawesome/fontawesome'
+import fabrands from '@fortawesome/fontawesome-free-brands'
+import faregular from '@fortawesome/fontawesome-free-regular'
+import fasolid from '@fortawesome/fontawesome-free-solid'
+import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
+// Find icons here: https://fontawesome.com/icons?d=gallery
+
+import App from './view'
 import router from './router'
 
-import './common.scss'
+import { filtersHelp, validatorsHelp } from './helper'
 
-import fontawesome from '@fortawesome/fontawesome'
-import fas from '@fortawesome/fontawesome-free-solid'
-import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
-
-fontawesome.library.add(fas)
-
-Vue.use(ElementUI)
-
-Vue.component('font-awesome-icon', FontAwesomeIcon)
+// Use helpers
+filtersHelp(Vue)
+validatorsHelp()
 
 Vue.config.productionTip = false
 
-/* eslint-disable no-new */
+// Use Element-UI
+Vue.use(ElementUI)
+
+// Use FontAwesome
+fontawesome.library.add(fabrands, faregular, fasolid)
+Vue.component('font-awesome-icon', FontAwesomeIcon)
+
+// Create a single Vue instance for App
 new Vue({
-  el: '#app',
   router,
-  components: { App },
-  template: '<App/>'
-})
+  render: h => h(App)
+}).$mount('#app')

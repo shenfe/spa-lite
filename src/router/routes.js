@@ -1,33 +1,58 @@
-import Page1 from '@/components/Page1'
-import Page2 from '@/components/Page2'
-import Page21 from '@/components/Page21'
-import Page22 from '@/components/Page22'
+import Home from '@/view/Home'
+import Api from '@/view/Api'
+import Sub from '@/view/SubMenu'
+import Sub1 from '@/component/SubMenu/Item1'
+import Sub2 from '@/component/SubMenu/Item2'
+import DemoForm from '@/view/DemoForm'
 
 export default [
   {
-    path: '/page1',
-    name: 'Page1',
-    component: Page1,
-    extraTitle: '页面1',
-    extraType: 'setting'
+    path: '/',
+    name: 'home',
+    component: Home,
+    meta: {
+      title: '欢迎'
+    },
+    icon: 'smile'
   },
   {
-    path: '/page2',
-    name: 'Page2',
-    component: Page2,
-    extraTitle: '页面2',
-    extraType: 'setting',
+    path: '/api',
+    name: 'api',
+    component: Api,
+    // hidden: true, // hidden就不会在导航中
+    meta: {
+      title: '接口'
+    },
+    icon: 'cubes'
+  },
+  {
+    path: '/submenu',
+    component: Sub,
+    meta: {
+      title: '子菜单'
+    },
     children: [
       {
-        path: 'page21',
-        component: Page21,
-        extraTitle: '页面21'
+        path: '1',
+        meta: {
+          title: '子菜单项1'
+        },
+        component: Sub1
       },
       {
-        path: 'page22',
-        component: Page22,
-        extraTitle: '页面22'
+        path: '2',
+        meta: {
+          title: '子菜单项2'
+        },
+        component: Sub2
       }
     ]
+  },
+  {
+    path: '/demo-form',
+    component: DemoForm,
+    meta: {
+      title: '表单'
+    }
   }
 ]
