@@ -105,6 +105,7 @@ export default {
     display: block;
   }
   #user-figure {
+    margin-right: 8px;
     border-radius: 50%;
   }
 }

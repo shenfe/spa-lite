@@ -1,12 +1,13 @@
 # vue-eleme-tpl
 
-> 基于Vue.js框架及其下衍生类库，实现单页面应用。集成了Element-UI。
+> 基于Vue.js框架及其下衍生类库，实现单页面应用。
 
 ## 特性
 
 * 使用Vue全家桶
-* 使用element-ui
-* 使用axios
+* 使用element-ui作为基础组件库
+* 使用axios请求后端接口
+* 使用v-charts渲染图表（基于echarts封装）
 * 支持markdown直接写页面组件！
 * 支持json配置页面表单组件！
 * 支持yaml配置接口！
@@ -58,3 +59,8 @@ $ npm test
 1. 在view中新建页面级组件
 2. 根据实际情况，适当将页面划分为组件，在component下；并在页面组件中配置子路由
 3. 在router中添加该页面及对应路由路径
+
+### 图表
+
+使用[v-charts](https://v-charts.js.org)。
+

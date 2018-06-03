@@ -6,6 +6,8 @@ import Vue from 'vue'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
+import VCharts from 'v-charts'
+
 // Import FontAwesome
 import fontawesome from '@fortawesome/fontawesome'
 import fabrands from '@fortawesome/fontawesome-free-brands'
@@ -27,6 +29,8 @@ Vue.config.productionTip = false
 
 // Use Element-UI
 Vue.use(ElementUI)
+
+Vue.use(VCharts)
 
 // Use FontAwesome
 fontawesome.library.add(fabrands, faregular, fasolid)

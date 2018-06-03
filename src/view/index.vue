@@ -1,22 +1,20 @@
 <template>
-  <el-container id="main-outer">
-    <el-aside style="width: auto; overflow-x: hidden;">
-      <Nav :isCollapse="menuStatus" :nav="navigation" />
+  <el-container style="height: 100vh">
+    <el-aside id="nav-aside" width="auto">
+      <el-scrollbar style="height: 100vh">
+        <Nav :isCollapse="menuStatus" :nav="navigation" />
+      </el-scrollbar>
     </el-aside>
-    <el-main class="main">
-      <el-container>
+    <el-main style="padding: 0">
+      <el-container style="height: 100%">
         <el-header id="header" height="56px">
           <Header :menuStatus="menuStatus" @anyEvent="onHeaderEvent">
             <logo slot="logo" />
             <span slot="dock"></span>
           </Header>
         </el-header>
-        <el-main>
-          <el-container>
-            <el-main class="main">
-              <router-view/>
-            </el-main>
-          </el-container>
+        <el-main style="max-height: calc(100vh - 56px)">
+          <router-view/>
         </el-main>
       </el-container>
     </el-main>
@@ -63,16 +61,11 @@ html, body {
   border: 0;
   padding: 0;
 }
-#main-outer {
-  height: 100vh;
-}
-.main {
-  padding: 0;
+#nav-aside {
+  overflow-x: hidden;
+  border-right: solid 1px #e6e6e6;
 }
 #header {
-  position: sticky;
-  z-index: 100;
-  top: 0;
   padding-left: 0;
   border-bottom: 1px solid #e6e6e6;
   background: rgba($color: #fff, $alpha: .8);

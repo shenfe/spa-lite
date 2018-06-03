@@ -35,7 +35,7 @@ export default {
 
 <style lang="scss" scoped>
 #nav {
-  height: 100vh;
+  border-right: none;
 }
 #nav:not(.el-menu--collapse) {
   width: 200px;

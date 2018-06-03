@@ -50,7 +50,7 @@ if (apiConf.apis) {
 const extraApis = {
 
   // Example
-  res0: {
+  'res0': {
     url: '/api/res/0',
     expect: {
       code: 0,

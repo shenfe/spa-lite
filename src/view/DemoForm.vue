@@ -23,11 +23,11 @@ export default {
         labelPosition: 'left',
         fields: [
           {
-            label: '单选',
-            name: 'danxuan',
-            type: 'radio',
-            value: 'a',
-            options: {
+            label: '单选', // 显示的标签；必填
+            name: 'danxuan', // 定义的字段名；必填
+            type: 'radio', // 表单项类型；必填
+            value: 'a', // 默认值
+            options: { // 选项
               'a': {
                 text: '选项a'
               },
@@ -36,7 +36,7 @@ export default {
               },
               'c': {
                 text: '选项c',
-                disabled: true
+                disabled: true // 该选项是否禁用
               }
             }
           },
@@ -44,7 +44,7 @@ export default {
             label: '多选',
             name: 'duoxuan',
             type: 'checkbox',
-            value: ['a', 'd'],
+            value: ['a', 'd'], // 多选的默认值是数组形式
             options: {
               'a': {
                 text: '选项a'
@@ -66,8 +66,8 @@ export default {
             label: '文本输入',
             name: 'wenbenshuru',
             type: 'input',
-            placeholder: '文本输入',
-            rules: [
+            placeholder: '文本输入', // 无输入时的占位提示信息
+            rules: [ // 字段校验规则，详见http://element-cn.eleme.io/#/zh-CN/component/form#biao-dan-yan-zheng
               { required: true, message: '请输入文本', trigger: 'blur' },
               { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
             ]
@@ -85,7 +85,7 @@ export default {
             type: 'input',
             value: '2',
             placeholder: '多行文本输入',
-            multiline: true
+            multiline: true // 是否是多行文本输入
           },
           {
             label: '计数器',
@@ -93,19 +93,19 @@ export default {
             type: 'number',
             value: 3,
             disabled: false,
-            min: 1,
-            max: 5,
-            step: 1
+            min: 1, // 最小值
+            max: 5, // 最大值
+            step: 1 // 步长
           },
           {
             label: '下拉选择',
             name: 'xiala',
             type: 'select',
             value: '',
-            clearable: true,
+            clearable: true, // 可清空
             disabled: false,
-            multiple: false,
-            placeholder: '下拉选择',
+            multiple: false, // 是否多选
+            placeholder: '下拉选择', // 无选择时的占位提示
             options: {
               'a': {
                 text: '选项a'
@@ -133,15 +133,15 @@ export default {
             type: 'switch',
             value: true,
             disabled: false,
-            activeText: '激活',
-            inactiveText: '不激活'
+            activeText: '激活', // “开”对应的文案
+            inactiveText: '不激活' // “关”对应的文案
           },
           {
             label: '滑块',
             name: 'huakuai',
             type: 'range',
             value: 10,
-            range: false,
+            range: false, // 是否选择范围（两端都可拖动）
             disabled: false,
             min: 0,
             max: 100,
@@ -151,12 +151,12 @@ export default {
             label: '日期',
             name: 'riqi',
             type: 'date',
-            range: true
+            range: true // 是否选择范围
           },
           {
             label: '上传',
             name: 'shangchuan',
-            type: 'upload',
+            type: 'upload', // 文件上传，详见http://element-cn.eleme.io/#/zh-CN/component/upload
             action: 'https://jsonplaceholder.typicode.com/posts/',
             accept: '',
             disabled: false,

@@ -14,7 +14,9 @@
     "@fortawesome/fontawesome-free-solid": "^5.0.13",
     "@fortawesome/vue-fontawesome": "0.0.22",
     "axios": "^0.18.0",
+    "echarts": "^4.1.0",
     "element-ui": "^2.4.0",
+    "v-charts": "^1.16.19",
     "vue": "^2.5.13",
     "vue-router": "^3.0.1"
   },
