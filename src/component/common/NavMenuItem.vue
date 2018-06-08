@@ -5,10 +5,10 @@
       <span slot="title">{{ (data.meta && data.meta.title) || data.title }}</span>
     </template>
     <template v-for="item in data.children">
-      <NavMenuItem :key="fullPath + '/' + item.path" :data="item" :path="fullPath" />
+      <NavMenuItem :v-if="!item.hidden" :key="fullPath + '/' + item.path" :data="item" :path="fullPath" />
     </template>
   </el-submenu>
-  <el-menu-item v-else-if="!data.hidden" :index="fullPath">
+  <el-menu-item v-else :index="fullPath">
     <font-awesome-icon class="fa_1" v-if="data.icon" :icon="data.icon" />
     <span slot="title">{{ (data.meta && data.meta.title) || data.title }}</span>
   </el-menu-item>
