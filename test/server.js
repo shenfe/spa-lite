@@ -10,7 +10,7 @@ const server = http.createServer(app)
 
 process.env.NODE_ENV = 'production'
 const mountPath = require('../vue.config').baseUrl
-app.use(mountPath.replace(/\/$/, ''), express.static(path.resolve(__dirname, '../dist')))
+app.use(mountPath, express.static(path.resolve(__dirname, '../dist')))
 
 const { port, before } = require('../vue.config').devServer
 
