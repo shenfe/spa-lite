@@ -4,6 +4,9 @@ const path = require('path')
 const { base, apis } = require('./mock')
 
 module.exports = {
+  baseUrl: process.env.NODE_ENV === 'production'
+    ? '/my-app/'
+    : '/',
   configureWebpack: {
     module: {
       rules: [
@@ -34,7 +37,14 @@ module.exports = {
   },
   devServer: {
     port: 8080,
-    proxy: null, // string | Object
+    proxy: {
+      '/other/api': {
+        target: 'http://localhost:5000',
+        pathRewrite: {
+          '^/other': ''
+        }
+      }
+    }, // string | Object
     before: app => { // app is an express instance
       console.log('Express app launching...')
       for (let name in apis) {

@@ -8,7 +8,8 @@ const http = require('http')
 
 const server = http.createServer(app)
 
-app.use(express.static(path.resolve(__dirname, '../dist')))
+const mountPath = require('../vue.config').baseUrl
+app.use(mountPath.replace(/\/$/, ''), express.static(path.resolve(__dirname, '../dist')))
 
 const { port, before } = require('../vue.config').devServer
 

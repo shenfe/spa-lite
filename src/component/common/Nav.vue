@@ -3,7 +3,7 @@
     background-color="#fff"
     :collapse="isCollapse" :default-active="$route.path">
     <template v-for="item in nav">
-      <NavMenuItem :v-if="!item.hidden" :key="item.path" :data="item" :path="''" />
+      <NavMenuItem :key="item.path" :data="item" :path="''" />
     </template>
   </el-menu>
 </template>
