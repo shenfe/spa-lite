@@ -68,7 +68,7 @@ $ npm test
 
 你可能需要在`vue.config.js`中通过配置[output.publicPath](https://webpack.js.org/configuration/output/#output-publicpath)来给静态资源文件的url加前缀路径，
 配置[devServer.publicPath](https://webpack.js.org/configuration/dev-server/#devserver-publicpath-)使得开发环境能正确serve静态资源文件；
-配置[devServer.proxy](https://webpack.js.org/configuration/dev-server/#devserver-proxy)使得开发环境能正确serve一些api接口，并与axios的baseUrl配合使用。
+配置[devServer.proxy](https://webpack.js.org/configuration/dev-server/#devserver-proxy)使得开发环境能正确serve一些api接口，并与axios的baseURL配合使用。
 
 例如：
 
