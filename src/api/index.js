@@ -5,7 +5,7 @@ import CONF from './config.yaml'
 const IS_PRODUCTION = process.env.NODE_ENV === 'production'
 const API_URL = IS_PRODUCTION ? CONF.base : `http://${location.hostname}:8080${CONF.base}` // NOTICE: here set the development server host
 
-let $axios = axios.create({
+const $axios = axios.create({
   baseURL: API_URL,
   timeout: 5000,
   headers: {'Content-Type': 'application/json'}
