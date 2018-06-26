@@ -3,7 +3,7 @@
     :label-position="ctx.labelPosition"
     :ref="formName" :rules="rules" :inline="!!ctx.inline" :model="form">
     <template v-for="(item, index) of ctx.fields">
-      <el-form-item :label="item.label" :key="index" :prop="rules.hasOwnProperty(item.name) ? item.name : undefined">
+      <el-form-item :label="item.label" :key="index" :prop="item.name">
 
         <!-- 单选 -->
         <template v-if="item.type === 'radio'">
@@ -113,10 +113,10 @@
       </el-form-item>
     </template>
 
-    <el-form-item>
+    <el-form-item style="text-align: right;">
       <el-button type="primary" @click="onSubmit(form)">提交</el-button>
-      <!-- <el-button @click="resetForm()">重置</el-button> -->
-      <el-button>取消</el-button>
+      <el-button @click="resetForm()">重置</el-button>
+      <!-- <el-button>取消</el-button> -->
     </el-form-item>
   </el-form>
 </template>
