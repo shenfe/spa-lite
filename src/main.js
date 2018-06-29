@@ -21,6 +21,8 @@ import router from './router'
 
 import { filtersHelp, validatorsHelp } from './helper'
 
+import Store from './store'
+
 // Use helpers
 filtersHelp(Vue)
 validatorsHelp()
@@ -35,6 +37,8 @@ Vue.use(VCharts)
 // Use FontAwesome
 fontawesome.library.add(fabrands, faregular, fasolid)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
+
+Vue.use(Store)
 
 // Create a single Vue instance for App
 new Vue({
