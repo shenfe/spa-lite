@@ -3,8 +3,7 @@ const type = value => {
 }
 
 const isSimple = value => {
-  const t = type(value)
-  switch (t) {
+  switch (type(value)) {
     case 'number':
     case 'string':
     case 'boolean':
@@ -72,7 +71,6 @@ const set = (proppath, value, force) => {
 const watch = (proppath, callback, immediate) => {
   if (!listeners[proppath]) listeners[proppath] = []
   listeners[proppath].push(callback)
-
   immediate && callback(get(proppath))
 }
 
