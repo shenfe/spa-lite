@@ -60,6 +60,28 @@ $ npm test
 2. 根据实际情况，适当将页面划分为组件，在component下；并在页面组件中配置子路由
 3. 在router中添加该页面及对应路由路径
 
+### 全局状态&发布订阅
+
+在组件中设置状态：
+
+```js
+this.$store.set('a.b.c', 1)
+```
+
+在组件中获取状态：
+
+```js
+this.$store.get('a.b.c')
+```
+
+在组件中订阅状态：
+
+```js
+this.$store.watch('a.b.c', v => {
+  console.log(`got a.b.c`, v)
+})
+```
+
 ### 图表
 
 使用[v-charts](https://v-charts.js.org)。
