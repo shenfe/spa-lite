@@ -35,16 +35,22 @@ const nextTick = (fn, ...args) => {
   })
 }
 
-const set = (proppath, value) => {
+const set = (proppath, value, force) => {
   let target = Store
   const parts = proppath.split('.')
   const curPath = []
   let parent
   let part
   while (parts.length) {
-    if (isSimple(target)) return {
-      code: 1,
-      message: `value error, proppath '${curPath.join('.')}'`
+    if (isSimple(target)) {
+      if (!force) {
+        return {
+          code: 1,
+          message: `value error, proppath '${curPath.join('.')}'`
+        }
+      } else {
+        target = parent[part] = {}
+      }
     }
     part = parts.shift()
     curPath.push(part)
