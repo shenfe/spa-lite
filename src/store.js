@@ -1,4 +1,8 @@
-import store from '@/helper/pubsub'
+import Store from '@/helper/pubsub'
+
+const store = new Store()
+
+export { store }
 
 export default {
   install: function (Vue) {
