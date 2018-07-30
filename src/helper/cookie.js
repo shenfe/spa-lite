@@ -43,7 +43,7 @@ const removeCookie = (name, options = {}) => {
   setCookie(name, '', options);
 };
 
-module.exports = {
+export default {
   get: getCookie,
   set: setCookie,
   remove: removeCookie
